@@ -2875,14 +2875,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-light {
-  color: #F5F5F5;
-  border-color: #F5F5F5;
+  color: #ffdb58;
+  border-color: #ffdb58;
 }
 
 .btn-outline-light:hover {
   color: #212529;
-  background-color: #F5F5F5;
-  border-color: #F5F5F5;
+  background-color: #ffdb58;
+  border-color: #ffdb58;
 }
 
 .btn-outline-light:focus, .btn-outline-light.focus {
@@ -6371,6 +6371,15 @@ a.close.disabled {
   vertical-align: text-top !important;
 }
 
+
+.text-secondary{
+  color: #ffdb58;
+}
+
+.bg-primaryy {
+  background-color: #0a1026 !important;
+}
+
 .bg-primary {
   background-color: #ffdb58 !important;
 }
@@ -9828,7 +9837,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link {
   padding: 30px 15px;
-  color: #0a1026;
+  color: #008080;
   font-size: 17px;
   font-weight: 600;
   outline: none;
@@ -9836,7 +9845,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #014d4e;
+  color: #0a1026;
 }
 
 @media (max-width: 991.98px) {
