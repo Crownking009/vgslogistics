@@ -447,7 +447,10 @@ h6, .h6 {
   font-size: 1.8rem;
   font-weight: bolder;
   color:#ffdb58;
+  text-align: center;
+ 
 }
+
 .display-3 {
   font-size: 4.5rem;
   font-weight: 300;
@@ -468,7 +471,12 @@ h6, .h6 {
 
 @media (max-width: 1200px) {
   .display-4 {
-    font-size: calc(1rem + 2vw) ;
+    font-size: calc(1rem + 1vw) ;
+      /* background-color: #008080; */
+      text-align: center;
+      padding: 10px;
+      padding-left: 10px;
+      margin-left: 0;
   }
 }
 
@@ -7589,6 +7597,8 @@ button.bg-dark:focus {
 
 .m-0 {
   margin: 0 !important;
+  color: #0a1026;
+  
 }
 
 .mt-0,
@@ -7844,6 +7854,8 @@ button.bg-dark:focus {
 .pb-4,
 .py-4 {
   padding-bottom: 1.5rem !important;
+  padding-right: 18px;
+  padding-left: 5px;
 }
 
 .pl-4,
@@ -9497,8 +9509,18 @@ button.bg-dark:focus {
   text-transform: lowercase !important;
 }
 
+.text-primaryy {
+  color: #ffdb58;
+}
+
+
+/* .text-primary{
+  color: #FFdb58 !important;
+} */
+
 .text-uppercase {
   text-transform: uppercase !important;
+  color: #ffdb58;
 }
 
 .text-capitalize {
@@ -9533,9 +9555,9 @@ button.bg-dark:focus {
   color: #fff !important;
 }
 
-.text-primary {
+/* .text-primary {
   color: #ffdb58 !important;
-}
+} */
 
 a.text-primary:hover, a.text-primary:focus {
   color: #b38b00 !important;
@@ -9835,6 +9857,7 @@ h6,
   text-align: left;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1;
+  
 }
 
 .carousel-indicators {
@@ -9875,6 +9898,7 @@ h6,
   .carousel-caption h5 {
     font-size: 14px;
     font-weight: 400;
+    color: #ffdb58;
   }
   .carousel-caption h1 {
     font-size: 25px;
