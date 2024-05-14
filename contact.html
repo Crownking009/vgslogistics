@@ -105,25 +105,27 @@
 
                             <a href="contact.html" class="nav-item nav-link active">Contact Us</a>
                         </div>
-                        <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModal">Get A Quote</a>
+                        <a href="#" class="btn btn-primaryy d-lg-none" id="openQuoteModalMobile">Get A Quote</a>
+                        <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModalDesktop">Get A Quote</a>
 
-                        <div class="quoteModal">
-                        <div class="quoteModal-content">
-                            <span class="close">&times;</span>
-                            <form id="quoteForm">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required><br><br>
-                            
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required><br><br>
-                            
-                            <label for="message">Message:</label><br>
-                            <textarea id="message" name="message" rows="4" required></textarea><br><br>
-                            
-                            <input type="submit" value="Submit">
-                            </form>
+                        <div class="quoteModal" id="quoteModal">
+                            <div class="quoteModal-content">
+                                <span class="close">&times;</span>
+                                <form id="quoteForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required><br><br>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required><br><br>
+
+                                    <label for="message">Message:</label><br>
+                                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </div>
                         </div>
-                        </div>
+
                     </div>
                 </nav>
             </div>
@@ -274,7 +276,7 @@
                 <p class="m-0 text-white">&copy; <a href="#">VGS Worldwide Logistics Ltd</a>. All Rights Reserved.
                 </p>
             </div>
-            <div class="col-lg-6 text-center text-md-right">
+            <!-- <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
                         <a class="nav-link text-white py-0" href="#">Privacy</a>
@@ -289,7 +291,7 @@
                         <a class="nav-link text-white py-0" href="#">Help</a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Footer End -->

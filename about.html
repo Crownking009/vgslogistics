@@ -106,25 +106,27 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                         </div>
-                        <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModal">Get A Quote</a>
+                        <a href="#" class="btn btn-primaryy d-lg-none" id="openQuoteModalMobile">Get A Quote</a>
+                        <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModalDesktop">Get A Quote</a>
 
-                        <div class="quoteModal">
-                        <div class="quoteModal-content">
-                            <span class="close">&times;</span>
-                            <form id="quoteForm">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required><br><br>
-                            
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required><br><br>
-                            
-                            <label for="message">Message:</label><br>
-                            <textarea id="message" name="message" rows="4" required></textarea><br><br>
-                            
-                            <input type="submit" value="Submit">
-                            </form>
+                        <div class="quoteModal" id="quoteModal">
+                            <div class="quoteModal-content">
+                                <span class="close">&times;</span>
+                                <form id="quoteForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required><br><br>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required><br><br>
+
+                                    <label for="message">Message:</label><br>
+                                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </div>
                         </div>
-                        </div>
+
                     </div>
                 </nav>
             </div>
@@ -170,7 +172,7 @@
                     <p class="text-muted font-weight-normal mb-3">At VGS WORLDWIDE LOGISTICS LTD, We don't just Provide Services — We Forge Lasting Partnerships Built on Trust, Integrity, and Reliability. Whether Its a Small or Large Assignment, you can Count on us to Deliver Results that Exceed your Expectations, Every Time.</p>
                     <!-- <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est dolor</p> -->
                     <div class="d-flex align-items-center pt-4">
-                        <a href="" class="btn btn-primary mr-5">Learn More</a>
+                        <!-- <a href="about.html" class="btn btn-primary mr-5">Learn More</a> -->
                         <button type="button" class="btn-play" data-toggle="modal"
                             data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
                             <span></span>
@@ -434,7 +436,7 @@
                 <p class="m-0 text-white">&copy; <a href="#">VGS Worldwide Logistics Ltd</a>. All Rights Reserved.
                 </p>
             </div>
-            <div class="col-lg-6 text-center text-md-right">
+            <!-- <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
                         <a class="nav-link text-white py-0" href="#">Privacy</a>
@@ -449,7 +451,7 @@
                         <a class="nav-link text-white py-0" href="#">Help</a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Footer End -->

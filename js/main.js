@@ -188,3 +188,87 @@
     }
   });
   
+
+
+// GET A QUOTE ON CAROUSEL
+const getQuoteButton = document.getElementById('getQuoteButton');
+const formContainer = document.getElementById('formContainer');
+const forms = document.querySelectorAll('.form');
+const nextButtons = document.querySelectorAll('.nextButton');
+const submitButton = document.querySelector('.submitButton');
+const thankYouMessage = document.getElementById('thankYouMessage');
+
+getQuoteButton.addEventListener('click', function() {
+  formContainer.style.display = 'block';
+  forms[0].classList.add('active'); // Show the first form section initially
+});
+
+
+
+
+
+nextButtons.forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    console.log("Next button clicked");
+    
+    const currentForm = this.closest('.form');
+    const nextForm = currentForm.nextElementSibling;
+
+    console.log("Current form:", currentForm);
+    console.log("Next form:", nextForm);
+
+    currentForm.classList.remove('active');
+    if (nextForm) {
+      nextForm.classList.add('active');
+      console.log("Next form added active class:", nextForm);
+    }
+  });
+});
+
+
+submitButton.addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const currentForm = this.closest('.form');
+  const inputs = currentForm.querySelectorAll('input[required]');
+  let formValid = true;
+
+  inputs.forEach(input => {
+    if (input.value.trim() === '') {
+      formValid = false;
+      input.classList.add('error');
+    } else {
+      input.classList.remove('error');
+    }
+  });
+
+  if (formValid) {
+    formContainer.style.display = 'none';
+    thankYouMessage.style.display = 'block';
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
