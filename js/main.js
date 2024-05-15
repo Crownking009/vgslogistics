@@ -147,26 +147,6 @@
 
 // get a quote button
 
-// document.getElementById("openQuoteModal").addEventListener("click", function() {
-//     document.querySelector(".quoteModal").style.display = "block";
-//   });
-  
-//   document.querySelector(".quoteModal .close").addEventListener("click", function() {
-//     document.querySelector(".quoteModal").style.display = "none";
-//   });
-  
-//   // Close the modal when clicking outside of it
-//   window.addEventListener("click", function(event) {
-//     if (event.target == document.querySelector(".quoteModal")) {
-//       document.querySelector(".quoteModal").style.display = "none";
-//     }
-//   });
-
-
-
-
-
-
 
 
   document.getElementById("openQuoteModalMobile").addEventListener("click", function() {
@@ -191,62 +171,59 @@
 
 
 // GET A QUOTE ON CAROUSEL
-const getQuoteButton = document.getElementById('getQuoteButton');
-const formContainer = document.getElementById('formContainer');
-const forms = document.querySelectorAll('.form');
-const nextButtons = document.querySelectorAll('.nextButton');
-const submitButton = document.querySelector('.submitButton');
-const thankYouMessage = document.getElementById('thankYouMessage');
 
-getQuoteButton.addEventListener('click', function() {
-  formContainer.style.display = 'block';
-  forms[0].classList.add('active'); // Show the first form section initially
+
+// Functionality for "Get A Quote" button
+document.getElementById('getQuoteButton').addEventListener('click', function() {
+  document.getElementById('formOverlay').classList.remove('hidden'); // Show form overlay
 });
 
-
-
-
-
-nextButtons.forEach(button => {
-  button.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    console.log("Next button clicked");
-    
-    const currentForm = this.closest('.form');
-    const nextForm = currentForm.nextElementSibling;
-
-    console.log("Current form:", currentForm);
-    console.log("Next form:", nextForm);
-
-    currentForm.classList.remove('active');
-    if (nextForm) {
-      nextForm.classList.add('active');
-      console.log("Next form added active class:", nextForm);
-    }
-  });
+// Functionality for closing the form overlay
+document.getElementById('closeButton').addEventListener('click', function() {
+  document.getElementById('formOverlay').classList.add('hidden'); // Hide form overlay
 });
 
-
-submitButton.addEventListener('click', function(e) {
+// Functionality for Next button in the form
+document.getElementById('nextButton').addEventListener('click', function(e) {
   e.preventDefault();
-
-  const currentForm = this.closest('.form');
-  const inputs = currentForm.querySelectorAll('input[required]');
+  
+  const inputs = document.querySelectorAll('#personalInfoForm input[required]');
   let formValid = true;
 
   inputs.forEach(input => {
     if (input.value.trim() === '') {
       formValid = false;
-      input.classList.add('error');
+      input.classList.add('error'); // Apply error style to empty required inputs
     } else {
       input.classList.remove('error');
     }
   });
 
   if (formValid) {
-    formContainer.style.display = 'none';
-    thankYouMessage.style.display = 'block';
+    document.getElementById('personalInfoForm').classList.remove('active'); // Hide current form section
+    document.getElementById('addressForm').classList.add('active'); // Show next form section
+  }
+});
+
+// Functionality for Submit button in the form
+document.getElementById('submitButton').addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
+  let formValid = true;
+
+  inputs.forEach(input => {
+    if (input.value.trim() === '') {
+      formValid = false;
+      input.classList.add('error'); // Apply error style to empty required inputs
+    } else {
+      input.classList.remove('error');
+    }
+  });
+
+  if (formValid) {
+    document.getElementById('formOverlay').classList.add('hidden'); // Hide form overlay
+    document.getElementById('thankYouMessage').classList.remove('hidden'); // Show thank you message
   }
 });
 
@@ -255,20 +232,33 @@ submitButton.addEventListener('click', function(e) {
 
 
 
+// CAROUSEL SERVICES BUTTON
+//  // Get references to the buttons and quote backgrounds
+// var button1 = document.getElementById("getQuoteButton1");
+// var button2 = document.getElementById("getQuoteButton2");
+// var button3 = document.getElementById("getQuoteButton3");
+// var quoteList1 = document.getElementById("quoteList1");
+// var quoteList2 = document.getElementById("quoteList2");
+// var quoteList3 = document.getElementById("quoteList3");
 
+// // Add event listeners to each button for mouseover and mouseout events
+// button1.addEventListener("mouseover", function() {
+//   quoteList1.querySelector(".quote-background").style.display = "block";
+// });
+// button1.addEventListener("mouseout", function() {
+//   quoteList1.querySelector(".quote-background").style.display = "none";
+// });
 
+// button2.addEventListener("mouseover", function() {
+//   quoteList2.querySelector(".quote-background").style.display = "block";
+// });
+// button2.addEventListener("mouseout", function() {
+//   quoteList2.querySelector(".quote-background").style.display = "none";
+// });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// button3.addEventListener("mouseover", function() {
+//   quoteList3.querySelector(".quote-background").style.display = "block";
+// });
+// button3.addEventListener("mouseout", function() {
+//   quoteList3.querySelector(".quote-background").style.display = "none";
+// });

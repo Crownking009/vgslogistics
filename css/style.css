@@ -10439,45 +10439,174 @@ background-color: #0a1026; /* Darker green */
 
 
 /* GET A QUOTE BUTTON ON CAROUSEL */
-.form-container {
-  display: block;
+/* Styles for form overlay */
+#formOverlay
+{
   position: fixed;
-  top: 20%;
-  left: 20%;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border: 1px solid #ccc;
-  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  z-index: 9999; /* Ensure the overlay appears above other content */
 }
 
+/* Styles for form container */
+#formContainer
+ {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white; /* White background */
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
+}
+
+
+
+/* Media query for mobile screens */
+@media (max-width: 767px) {
+  #formContainer {
+    width: 80%; /* Adjust width for mobile screens */
+  }
+ 
+
+
+}
+
+@media (max-width: 767px) {
+  .form h5 {
+    color: #008080; /* Color for mobile screens */
+  }
+}
+
+
+/* Styles for form sections */
 .form {
-  margin-bottom: 20px;
-  display: none;
+  display: none; /* Initially hide all form sections */
 }
 
 .form.active {
-  display: block; /* Show the form section with the active class */
+  display: block; /* Show active form section */
 }
 
-.form.hidden {
-  display: none;
+/* Styles for form inputs */
+#personalInfoForm input,
+#addressForm input,
+#addressForm input[type="date"],
+#addressForm input[type="time"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in input width calculation */
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-#thankYouMessage {
-  display: none;
-}
-
-
-
-
-
-
-/* Error state */
-input.error {
+/* Error state styles for form inputs */
+#personalInfoForm input.error,
+#addressForm input.error,
+#addressForm input[type="date"].error,
+#addressForm input[type="time"].error {
   border-color: red;
 }
 
+/* Styles for form buttons */
+#personalInfoForm button,
+#addressForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #008080; /* Blue button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth hover transition */
+}
+
+#personalInfoForm button:hover,
+#addressForm button:hover {
+  background-color: #014d4e; /* Darker on hover */
+}
+
+/* Styles for close button */
+#closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styles for thank you message */
+#thankYouMessage {
+  display: none; /* Initially hide thank you message */
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #008080; /* Blue text color */
+}
+
+/* Styles for close button */
+#closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 100; /* Ensure close button appears above form container */
+}
+
+.hidden {
+  display: none;
+}
+.oba{
+  color: #008080;
+}
 
 
 
 
+/* CAROUSEL SERVICES BUTTON */
+
+
+/* Hover effect to display quote background */
+.btn:hover + .quote-list .quote-background {
+  display: block;
+}
+
+
+
+
+/* Styling for the quote background */
+.quote-background {
+  display: none; /* Initially hide the quote background */
+  background-color: #008080; 
+  padding: 10px; /* Adjust padding as needed */
+  border-radius: 10px; /* Curved edges */
+  max-width: 300px; /* Limit the width */
+  position: absolute; /* Position absolute for positioning relative to the button */
+  bottom: calc(100% + 10px); /* Position above the button with some spacing */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  z-index: 1; /* Ensure the quote background is above the button */
+}
+
+/* Additional styling for the quote list */
+.quote-list {
+  margin-top: 10px;
+  position: relative; /* Position relative for absolute positioning of quote background */
+}
+
+
+.quote-text{
+  color: #ffdb58;
+}
