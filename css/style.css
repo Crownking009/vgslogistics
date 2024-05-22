@@ -4408,6 +4408,7 @@ input[type="button"].btn-block {
   color: rgba(0, 0, 0, 0.9);
 }
 
+
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.1);
@@ -9846,7 +9847,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #0a1026;
+  color: #0a1026 !important;
 }
 
 @media (max-width: 991.98px) {
@@ -10545,11 +10546,17 @@ background-color: #0a1026; /* Darker green */
 
 /* Styles for thank you message */
 #thankYouMessage {
-  display: none; /* Initially hide thank you message */
   text-align: center;
   font-size: 1.2rem;
   margin-top: 20px;
-  color: #008080; /* Blue text color */
+  color: #008080;
+}
+
+.initially-hidden {
+  display: none;
+}
+.hidden {
+  display: none;
 }
 
 /* Styles for close button */
@@ -10565,9 +10572,7 @@ background-color: #0a1026; /* Darker green */
   z-index: 100; /* Ensure close button appears above form container */
 }
 
-.hidden {
-  display: none;
-}
+
 .oba{
   color: #008080;
 }

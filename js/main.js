@@ -2,21 +2,21 @@
     "use strict";
     
     // Dropdown on mouse hover
-    $(document).ready(function () {
-        function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
-            } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
-            }
-        }
-        toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
-    });
+    // $(document).ready(function () {
+    //     function toggleNavbarMethod() {
+    //         if ($(window).width() > 992) {
+    //             $('.navbar .dropdown').on('mouseover', function () {
+    //                 $('.dropdown-toggle', this).trigger('click');
+    //             }).on('mouseout', function () {
+    //                 $('.dropdown-toggle', this).trigger('click').blur();
+    //             });
+    //         } else {
+    //             $('.navbar .dropdown').off('mouseover').off('mouseout');
+    //         }
+    //     }
+    //     toggleNavbarMethod();
+    //     $(window).resize(toggleNavbarMethod);
+    // });
     
     
     // Back to top button
@@ -173,59 +173,170 @@
 // GET A QUOTE ON CAROUSEL
 
 
-// Functionality for "Get A Quote" button
-document.getElementById('getQuoteButton').addEventListener('click', function() {
-  document.getElementById('formOverlay').classList.remove('hidden'); // Show form overlay
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('getQuoteButton').addEventListener('click', function() {
+//         document.getElementById('formOverlay').classList.remove('hidden'); // Show form overlay
+//     });
+// });
 
-// Functionality for closing the form overlay
-document.getElementById('closeButton').addEventListener('click', function() {
-  document.getElementById('formOverlay').classList.add('hidden'); // Hide form overlay
-});
 
-// Functionality for Next button in the form
-document.getElementById('nextButton').addEventListener('click', function(e) {
-  e.preventDefault();
-  
-  const inputs = document.querySelectorAll('#personalInfoForm input[required]');
-  let formValid = true;
+document.addEventListener('DOMContentLoaded', function() {
+  // Add event listener to "Get A Quote" button
+  var getQuoteButton = document.getElementById('getQuoteButton');
+  if (getQuoteButton) {
+    getQuoteButton.addEventListener('click', function() {
+      var formOverlay = document.getElementById('formOverlay');
+      if (formOverlay) {
+        formOverlay.classList.remove('hidden'); // Show form overlay
+      }
+    });
+  }
 
-  inputs.forEach(input => {
-    if (input.value.trim() === '') {
-      formValid = false;
-      input.classList.add('error'); // Apply error style to empty required inputs
-    } else {
-      input.classList.remove('error');
-    }
-  });
+  // Add event listener to "Close" button
+  var closeButton = document.getElementById('closeButton');
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      var formOverlay = document.getElementById('formOverlay');
+      if (formOverlay) {
+        formOverlay.classList.add('hidden'); // Hide form overlay
+      }
+    });
+  }
 
-  if (formValid) {
-    document.getElementById('personalInfoForm').classList.remove('active'); // Hide current form section
-    document.getElementById('addressForm').classList.add('active'); // Show next form section
+  // Add event listener to "Next" button
+  var nextButton = document.getElementById('nextButton');
+  if (nextButton) {
+    nextButton.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const inputs = document.querySelectorAll('#personalInfoForm input[required]');
+      let formValid = true;
+
+      inputs.forEach(input => {
+        if (input.value.trim() === '') {
+          formValid = false;
+          input.classList.add('error'); // Apply error style to empty required inputs
+        } else {
+          input.classList.remove('error');
+        }
+      });
+
+      if (formValid) {
+        var personalInfoForm = document.getElementById('personalInfoForm');
+        var addressForm = document.getElementById('addressForm');
+        if (personalInfoForm && addressForm) {
+          personalInfoForm.classList.remove('active'); // Hide current form section
+          addressForm.classList.add('active'); // Show next form section
+        }
+      }
+    });
+  }
+
+  // Add event listener to "Submit" button
+  var submitButton = document.getElementById('submitButton');
+  if (submitButton) {
+    submitButton.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
+      let formValid = true;
+
+      inputs.forEach(input => {
+        if (input.value.trim() === '') {
+          formValid = false;
+          input.classList.add('error'); // Apply error style to empty required inputs
+        } else {
+          input.classList.remove('error');
+        }
+      });
+
+      if (formValid) {
+        var formOverlay = document.getElementById('formOverlay');
+        var thankYouMessage = document.getElementById('thankYouMessage');
+        if (formOverlay && thankYouMessage) {
+          formOverlay.classList.add('hidden'); // Hide form overlay
+          thankYouMessage.classList.remove('initially-hidden'); // Show thank you message
+        }
+      }
+    });
   }
 });
 
-// Functionality for Submit button in the form
-document.getElementById('submitButton').addEventListener('click', function(e) {
-  e.preventDefault();
-  
-  const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
-  let formValid = true;
 
-  inputs.forEach(input => {
-    if (input.value.trim() === '') {
-      formValid = false;
-      input.classList.add('error'); // Apply error style to empty required inputs
-    } else {
-      input.classList.remove('error');
-    }
+
+
+
+
+
+
+// Get the current page URL active
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the current page pathname
+  var currentPath = window.location.pathname;
+
+  // Get all links in the navbar
+  var links = document.querySelectorAll('.navbar-nav .nav-link');
+
+  // Loop through each link and check if its pathname matches the current path
+  links.forEach(function(link) {
+      var linkPath = new URL(link.href).pathname;
+      console.log("Link Path: ", linkPath);
+      console.log("Current Path: ", currentPath);
+      if (currentPath === linkPath) {
+          // If it matches, add the 'active' class to the link
+          link.classList.add('active');
+      }
   });
-
-  if (formValid) {
-    document.getElementById('formOverlay').classList.add('hidden'); // Hide form overlay
-    document.getElementById('thankYouMessage').classList.remove('hidden'); // Show thank you message
-  }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Add event listener to "Submit" button
+//   var submitButton = document.getElementById('submitButton');
+//   if (submitButton) {
+//     submitButton.addEventListener('click', function(e) {
+//       e.preventDefault();
+
+//       const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
+//       let formValid = true;
+
+//       inputs.forEach(input => {
+//         if (input.value.trim() === '') {
+//           formValid = false;
+//           input.classList.add('error'); // Apply error style to empty required inputs
+//         } else {
+//           input.classList.remove('error');
+//         }
+//       });
+
+//       if (formValid) {
+//         var formOverlay = document.getElementById('formOverlay');
+//         var thankYouMessage = document.getElementById('thankYouMessage');
+//         if (formOverlay && thankYouMessage) {
+//           formOverlay.classList.add('hidden'); // Hide form overlay
+//           thankYouMessage.classList.remove('hidden'); // Show thank you message
+//         }
+//       }
+//     });
+//     // Inside the event listener for the Submit button
+// console.log('Submit button clicked');
+
+//   }
+
 
 
 
