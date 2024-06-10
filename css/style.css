@@ -7744,7 +7744,15 @@ button.bg-dark:focus {
 
 .mr-5,
 .mx-5 {
-  margin-right: 3rem !important;
+  margin-right: 1rem !important;
+}
+
+.email{
+  color: #0a1026;
+}
+
+.emailhead{
+  margin-left: 50px;
 }
 
 .mb-5,
@@ -10565,16 +10573,12 @@ background-color: #0a1026; /* Darker green */
 
 
 
-/* CAROUSEL SERVICES BUTTON */
-
+/* CAROUSEL SERVICES LIST BUTTON */
 
 /* Hover effect to display quote background */
 .btn:hover + .quote-list .quote-background {
   display: block;
 }
-
-
-
 
 /* Styling for the quote background */
 .quote-background {
@@ -10584,10 +10588,12 @@ background-color: #0a1026; /* Darker green */
   border-radius: 10px; /* Curved edges */
   max-width: 300px; /* Limit the width */
   position: absolute; /* Position absolute for positioning relative to the button */
-  bottom: calc(100% + 10px); /* Position above the button with some spacing */
+  top: calc(100% + 5px); /* Position slightly below the button with minimal spacing */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center horizontally */
-  z-index: 1; /* Ensure the quote background is above the button */
+  z-index: 1000; /* Ensure the quote background is above other content */
+  max-height: 50vh; /* Limit the height to 50% of the viewport height */
+  overflow-y: auto; /* Make the background scrollable */
 }
 
 /* Additional styling for the quote list */
@@ -10596,7 +10602,31 @@ background-color: #0a1026; /* Darker green */
   position: relative; /* Position relative for absolute positioning of quote background */
 }
 
-
-.quote-text{
+.quote-text {
   color: #ffdb58;
+  font-weight: lighter;
+  font-size: 16px; /* Adjust font size for better readability */
 }
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .quote-background {
+    max-height: 40vh; /* Adjust height for smaller screens */
+    top: calc(100% + 5px); /* Minimal spacing for smaller screens */
+  }
+
+  .quote-text {
+    font-size: 14px; /* Smaller font size for mobile devices */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

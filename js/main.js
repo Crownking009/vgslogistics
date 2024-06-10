@@ -128,32 +128,9 @@
 
 
 
-// get a quote button
 
 
-
-  document.getElementById("openQuoteModalMobile").addEventListener("click", function() {
-    document.getElementById("quoteModal").style.display = "block";
-  });
-  
-  document.getElementById("openQuoteModalDesktop").addEventListener("click", function() {
-    document.getElementById("quoteModal").style.display = "block";
-  });
-  
-  document.getElementsByClassName("close")[0].addEventListener("click", function() {
-    document.getElementById("quoteModal").style.display = "none";
-  });
-  
-  // Close the modal when clicking outside of it
-  window.addEventListener("click", function(event) {
-    if (event.target == document.getElementById("quoteModal")) {
-      document.getElementById("quoteModal").style.display = "none";
-    }
-  });
-  
-
-
-// GET A QUOTE ON CAROUSEL
+// GET A QUOTE ON NAVBAR
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -282,6 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// carousel list quote
 
 
 
