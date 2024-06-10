@@ -1,24 +1,7 @@
 (function ($) {
     "use strict";
     
-    // Dropdown on mouse hover
-    // $(document).ready(function () {
-    //     function toggleNavbarMethod() {
-    //         if ($(window).width() > 992) {
-    //             $('.navbar .dropdown').on('mouseover', function () {
-    //                 $('.dropdown-toggle', this).trigger('click');
-    //             }).on('mouseout', function () {
-    //                 $('.dropdown-toggle', this).trigger('click').blur();
-    //             });
-    //         } else {
-    //             $('.navbar .dropdown').off('mouseover').off('mouseout');
-    //         }
-    //     }
-    //     toggleNavbarMethod();
-    //     $(window).resize(toggleNavbarMethod);
-    // });
-    
-    
+  
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -173,96 +156,105 @@
 // GET A QUOTE ON CAROUSEL
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     document.getElementById('getQuoteButton').addEventListener('click', function() {
-//         document.getElementById('formOverlay').classList.remove('hidden'); // Show form overlay
-//     });
-// });
-
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Add event listener to "Get A Quote" button
   var getQuoteButton = document.getElementById('getQuoteButton');
+  var formOverlay = document.getElementById('formOverlay');
+  var personalInfoForm = document.getElementById('personalInfoForm');
+  var addressForm = document.getElementById('addressForm');
+  var closeButton = document.getElementById('closeButton');
+  var nextButton = document.getElementById('nextButton');
+  var submitButton = document.getElementById('submitButton');
+  var thankYouMessage = document.getElementById('thankYouMessage');
+
+  function disableBackgroundInteractions() {
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    var carousel = document.getElementById('carousel'); // Assuming there's an element with ID 'carousel'
+    if (carousel) {
+      carousel.style.pointerEvents = 'none'; // Disable interactions with the carousel
+    }
+  }
+
+  function enableBackgroundInteractions() {
+    document.body.style.overflow = ''; // Re-enable background scrolling
+    var carousel = document.getElementById('carousel');
+    if (carousel) {
+      carousel.style.pointerEvents = ''; // Re-enable interactions with the carousel
+    }
+  }
+
   if (getQuoteButton) {
     getQuoteButton.addEventListener('click', function() {
-      var formOverlay = document.getElementById('formOverlay');
       if (formOverlay) {
         formOverlay.classList.remove('hidden'); // Show form overlay
+        disableBackgroundInteractions(); // Disable interactions with background content
       }
     });
   }
 
-  // Add event listener to "Close" button
-  var closeButton = document.getElementById('closeButton');
   if (closeButton) {
     closeButton.addEventListener('click', function() {
-      var formOverlay = document.getElementById('formOverlay');
       if (formOverlay) {
         formOverlay.classList.add('hidden'); // Hide form overlay
+        enableBackgroundInteractions(); // Enable interactions with background content
       }
     });
   }
 
-  // Add event listener to "Next" button
-  var nextButton = document.getElementById('nextButton');
   if (nextButton) {
     nextButton.addEventListener('click', function(e) {
       e.preventDefault();
 
-      const inputs = document.querySelectorAll('#personalInfoForm input[required]');
-      let formValid = true;
+      if (personalInfoForm) {
+        const inputs = personalInfoForm.querySelectorAll('input[required]');
+        let formValid = true;
 
-      inputs.forEach(input => {
-        if (input.value.trim() === '') {
-          formValid = false;
-          input.classList.add('error'); // Apply error style to empty required inputs
-        } else {
-          input.classList.remove('error');
-        }
-      });
+        inputs.forEach(input => {
+          if (input.value.trim() === '') {
+            formValid = false;
+            input.classList.add('error'); // Apply error style to empty required inputs
+          } else {
+            input.classList.remove('error');
+          }
+        });
 
-      if (formValid) {
-        var personalInfoForm = document.getElementById('personalInfoForm');
-        var addressForm = document.getElementById('addressForm');
-        if (personalInfoForm && addressForm) {
-          personalInfoForm.classList.remove('active'); // Hide current form section
-          addressForm.classList.add('active'); // Show next form section
+        if (formValid) {
+          if (personalInfoForm && addressForm) {
+            personalInfoForm.classList.remove('active'); // Hide current form section
+            addressForm.classList.add('active'); // Show next form section
+          }
         }
       }
     });
   }
 
-  // Add event listener to "Submit" button
-  var submitButton = document.getElementById('submitButton');
   if (submitButton) {
     submitButton.addEventListener('click', function(e) {
       e.preventDefault();
 
-      const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
-      let formValid = true;
+      if (addressForm) {
+        const inputs = addressForm.querySelectorAll('input[required], input[type="date"], input[type="time"]');
+        let formValid = true;
 
-      inputs.forEach(input => {
-        if (input.value.trim() === '') {
-          formValid = false;
-          input.classList.add('error'); // Apply error style to empty required inputs
-        } else {
-          input.classList.remove('error');
-        }
-      });
+        inputs.forEach(input => {
+          if (input.value.trim() === '') {
+            formValid = false;
+            input.classList.add('error'); // Apply error style to empty required inputs
+          } else {
+            input.classList.remove('error');
+          }
+        });
 
-      if (formValid) {
-        var formOverlay = document.getElementById('formOverlay');
-        var thankYouMessage = document.getElementById('thankYouMessage');
-        if (formOverlay && thankYouMessage) {
-          formOverlay.classList.add('hidden'); // Hide form overlay
-          thankYouMessage.classList.remove('initially-hidden'); // Show thank you message
+        if (formValid) {
+          if (formOverlay && thankYouMessage) {
+            formOverlay.classList.add('hidden'); // Hide form overlay
+            thankYouMessage.classList.remove('initially-hidden'); // Show thank you message
+            enableBackgroundInteractions(); // Enable interactions with background content
+          }
         }
       }
     });
   }
 });
-
-
 
 
 
@@ -302,74 +294,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
-
-  // Add event listener to "Submit" button
-//   var submitButton = document.getElementById('submitButton');
-//   if (submitButton) {
-//     submitButton.addEventListener('click', function(e) {
-//       e.preventDefault();
-
-//       const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
-//       let formValid = true;
-
-//       inputs.forEach(input => {
-//         if (input.value.trim() === '') {
-//           formValid = false;
-//           input.classList.add('error'); // Apply error style to empty required inputs
-//         } else {
-//           input.classList.remove('error');
-//         }
-//       });
-
-//       if (formValid) {
-//         var formOverlay = document.getElementById('formOverlay');
-//         var thankYouMessage = document.getElementById('thankYouMessage');
-//         if (formOverlay && thankYouMessage) {
-//           formOverlay.classList.add('hidden'); // Hide form overlay
-//           thankYouMessage.classList.remove('hidden'); // Show thank you message
-//         }
-//       }
-//     });
-//     // Inside the event listener for the Submit button
-// console.log('Submit button clicked');
-
-//   }
-
-
-
-
-
-
-
-// CAROUSEL SERVICES BUTTON
-//  // Get references to the buttons and quote backgrounds
-// var button1 = document.getElementById("getQuoteButton1");
-// var button2 = document.getElementById("getQuoteButton2");
-// var button3 = document.getElementById("getQuoteButton3");
-// var quoteList1 = document.getElementById("quoteList1");
-// var quoteList2 = document.getElementById("quoteList2");
-// var quoteList3 = document.getElementById("quoteList3");
-
-// // Add event listeners to each button for mouseover and mouseout events
-// button1.addEventListener("mouseover", function() {
-//   quoteList1.querySelector(".quote-background").style.display = "block";
-// });
-// button1.addEventListener("mouseout", function() {
-//   quoteList1.querySelector(".quote-background").style.display = "none";
-// });
-
-// button2.addEventListener("mouseover", function() {
-//   quoteList2.querySelector(".quote-background").style.display = "block";
-// });
-// button2.addEventListener("mouseout", function() {
-//   quoteList2.querySelector(".quote-background").style.display = "none";
-// });
-
-// button3.addEventListener("mouseover", function() {
-//   quoteList3.querySelector(".quote-background").style.display = "block";
-// });
-// button3.addEventListener("mouseout", function() {
-//   quoteList3.querySelector(".quote-background").style.display = "none";
-// });

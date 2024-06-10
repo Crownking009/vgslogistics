@@ -611,6 +611,9 @@ pre code {
   overflow-y: scroll;
 }
 
+
+
+
 .container,
 .container-fluid,
 .container-sm,
@@ -6111,6 +6114,8 @@ a.close.disabled {
   color: #777777;
 }
 
+
+
 .carousel {
   position: relative;
 }
@@ -10441,8 +10446,10 @@ background-color: #0a1026; /* Darker green */
 
 /* GET A QUOTE BUTTON ON CAROUSEL */
 /* Styles for form overlay */
-#formOverlay
-{
+
+
+
+#formOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -10453,8 +10460,7 @@ background-color: #0a1026; /* Darker green */
 }
 
 /* Styles for form container */
-#formContainer
- {
+#formContainer {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10463,26 +10469,18 @@ background-color: #0a1026; /* Darker green */
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
+  z-index: 10000; /* Ensure the form container is above the overlay */
 }
-
-
 
 /* Media query for mobile screens */
 @media (max-width: 767px) {
   #formContainer {
     width: 80%; /* Adjust width for mobile screens */
   }
- 
-
-
-}
-
-@media (max-width: 767px) {
   .form h5 {
     color: #008080; /* Color for mobile screens */
   }
 }
-
 
 /* Styles for form sections */
 .form {
@@ -10542,6 +10540,7 @@ background-color: #0a1026; /* Darker green */
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 100; /* Ensure close button appears above form container */
 }
 
 /* Styles for thank you message */
@@ -10555,28 +10554,14 @@ background-color: #0a1026; /* Darker green */
 .initially-hidden {
   display: none;
 }
+
 .hidden {
   display: none;
 }
 
-/* Styles for close button */
-#closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  background-color: #ccc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 100; /* Ensure close button appears above form container */
-}
-
-
-.oba{
+.oba {
   color: #008080;
 }
-
 
 
 
